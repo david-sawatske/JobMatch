@@ -1,30 +1,11 @@
 import React, { Component } from 'react';
-import PersonalInfo from './user_form/personal_info'
+import UserForm from './user_form/user_form'
 
 export default class App extends Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      first: '',
-      last: '',
-      github: '',
-      linkedIn: ''
-    }
-
-    this.update = this.update.bind(this);
-  }
-
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
-
   render() {
     return (
       <div className="App">
-        <PersonalInfo update={this.update} />
+        <UserForm />
       </div>
     );
   }
