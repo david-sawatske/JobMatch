@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PersonalInfo from './personal_info'
-import CVPhoto from './cv_photo'
+import ResumePhoto from './resume_photo'
 
 export default class UserForm extends Component {
   constructor (props) {
@@ -27,10 +27,12 @@ export default class UserForm extends Component {
   }
 
   render() {
+    const { updateResumeImageData } = this.props;
+
     return (
       <div className="user-form">
         <PersonalInfo update={this.update} />
-        <CVPhoto />
+        <ResumePhoto updateResumeImageData={updateResumeImageData}/>
 
         <button onClick={this.onClick}></button>
       </div>
