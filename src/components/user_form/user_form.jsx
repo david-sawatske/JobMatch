@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PersonalInfo from './personal_info'
+import CVPhoto from './cv_photo'
 
 export default class UserForm extends Component {
   constructor (props) {
@@ -11,19 +12,16 @@ export default class UserForm extends Component {
       github: '',
       linkedIn: ''
     }
-
-    this.update = this.update.bind(this);
-    this.onClick = this.onClick.bind(this);
   }
 
-  update(field) {
-    return e => this.setState({
+  update = field => (
+     e => this.setState({
       [field]: e.currentTarget.value
-    });
-  }
+    })
+  )
 
-  onClick() {
-    const {updatePersonalData} =  this.props;
+  onClick = () => {
+    const { updatePersonalData } =  this.props;
 
     updatePersonalData(this.state)
   }
@@ -32,6 +30,7 @@ export default class UserForm extends Component {
     return (
       <div className="user-form">
         <PersonalInfo update={this.update} />
+        <CVPhoto />
 
         <button onClick={this.onClick}></button>
       </div>
