@@ -1,5 +1,6 @@
 export const UPDATE_PERSONAL_DATA = 'UPDATE_PERSONAL_DATA';
 export const UPDATE_RESUME_IMAGE_DATA = 'UPDATE_RESUME_IMAGE_DATA';
+export const UPDATE_LOCATIONS_DATA = 'UPDATE_LOCATIONS_DATA';
 
 export const updatePersonalData = data => ({
   type: UPDATE_PERSONAL_DATA,
@@ -8,5 +9,10 @@ export const updatePersonalData = data => ({
 
 export const updateResumeImageData = data => ({
   type: UPDATE_RESUME_IMAGE_DATA,
+  data
+});
+
+export const updateLocationsData = data => ({
+  type: UPDATE_LOCATIONS_DATA,
   data
 });

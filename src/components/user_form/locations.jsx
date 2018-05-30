@@ -15,8 +15,12 @@ class Locations extends Component {
     this.setState({ selectedLocations: newLocation });
   }
 
-  handleLegalChange = newLocation => {
+  handleLegalChange = () => {
     this.setState({ legalAuth: !this.state.legalAuth });
+  }
+
+  onClick = () => {
+    this.props.updateLocationsData(this.state)
   }
 
   render() {
@@ -45,6 +49,8 @@ class Locations extends Component {
            type="checkbox"
            checked={this.state.legalAuth}
            onChange={this.handleLegalChange} />
+
+        <button onClick={this.onClick}>Personal Next</button>
       </div>
     );
   }

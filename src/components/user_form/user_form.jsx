@@ -5,13 +5,14 @@ import Locations from './locations'
 
 export default class UserForm extends Component {
   render() {
-    const { updatePersonalData, updateResumeImageData } = this.props;
+    const { updatePersonalData, updateResumeImageData,
+            updateLocationsData } = this.props;
 
     return (
       <div className="user-form">
         <PersonalInfo updatePersonalData={updatePersonalData} />
         <ResumePhoto updateResumeImageData={updateResumeImageData} />
-        <Locations />
+        <Locations updateLocationsData={updateLocationsData}/>
       </div>
     );
   }
