@@ -1,21 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const PersonalInfo = ({ update }) => (
-  <div>
-    <form>
-      <label>First Name</label>
-      <input type="text" onChange={ update('first') }/>
-      <br/>
-      <label>Last Name</label>
-      <input type="text" onChange={ update('last') }/>
-      <br/>
-      <label>GitHub Profile</label>
-      <input type="text" onChange={ update('github') }/>
-      <br/>
-      <label>LinkedIn Profile</label>
-      <input type="text" onChange={ update('linkedIn') }/>
-    </form>
-  </div>
-);
+class PersonalInfo extends Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      first: '',
+      last: '',
+      github: '',
+      linkedIn: ''
+    }
+  }
+
+  update = field => (
+     e => this.setState({
+      [field]: e.currentTarget.value
+    })
+  )
+
+  onClick = () => {
+    const { updatePersonalData } =  this.props;
+
+    updatePersonalData(this.state)
+  }
+
+  render() {
+    return (
+      <div>
+        <form>
+          <label>First Name</label>
+          <input type="text" onChange={ this.update('first') }/>
+          <br/>
+          <label>Last Name</label>
+          <input type="text" onChange={ this.update('last') }/>
+          <br/>
+          <label>GitHub Profile</label>
+          <input type="text" onChange={ this.update('github') }/>
+          <br/>
+          <label>LinkedIn Profile</label>
+          <input type="text" onChange={ this.update('linkedIn') }/>
+        </form>
+
+        <button onClick={this.onClick}>Personal Next</button>
+      </div>
+    );
+  }
+}
 
 export default PersonalInfo;
