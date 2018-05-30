@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PersonalInfo from './user_form/personal_info'
 
 export default class App extends Component {
   constructor (props) {
@@ -23,19 +24,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <form>
-          <label>First Name</label>
-          <input type="text" value={this.state.first} onChange={this.update('first')}/>
-          <br/>
-          <label>Lase Name</label>
-          <input type="text" value={this.state.last} onChange={this.update('last')}/>
-          <br/>
-          <label>GitHub Profile</label>
-          <input type="text" value={this.state.github} onChange={this.update('github')}/>
-          <br/>
-          <label>LinkedIn Profile</label>
-          <input type="text" value={this.state.linkedIn} onChange={this.update('linkedIn')}/>
-        </form>
+        <PersonalInfo update={this.update} />
       </div>
     );
   }
