@@ -13,6 +13,7 @@ export default class UserForm extends Component {
     }
 
     this.update = this.update.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   update(field) {
@@ -21,10 +22,18 @@ export default class UserForm extends Component {
     });
   }
 
+  onClick() {
+    const {updatePersonalData} =  this.props;
+
+    updatePersonalData(this.state)
+  }
+
   render() {
     return (
       <div className="user-form">
         <PersonalInfo update={this.update} />
+
+        <button onClick={this.onClick}></button>
       </div>
     );
   }
