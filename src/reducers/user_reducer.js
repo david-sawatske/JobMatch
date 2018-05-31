@@ -4,7 +4,7 @@ import { UPDATE_PERSONAL_DATA, UPDATE_RESUME_IMAGE_DATA,
          UPDATE_LOCATIONS_DATA, UPDATE_TECHS_DATA,
          UPDATE_SALARY_DATA, UPDATE_BENEFITS_DATA } from '../actions/user_actions';
 
-import { merge } from 'lodash';
+import { merge, union } from 'lodash';
 
 const personalData = (state = {}, action) => {
   switch(action.type) {
@@ -33,10 +33,10 @@ const locationsData = (state = {}, action) => {
   }
 };
 
-const techsData = (state = {}, action) => {
+const userTechIds = (state = [], action) => {
   switch(action.type) {
     case UPDATE_TECHS_DATA:
-      return merge({}, state, action.data);
+      return merge([], state, getTechIds(action.data));
     default:
       return state;
   }
@@ -54,11 +54,23 @@ const benefitsData = (state = {}, action) => {
 const salaryData = (state = {}, action) => {
   switch(action.type) {
     case UPDATE_SALARY_DATA:
-      return merge({}, state, action.data);
+      return merge({}, state, action.data.byId);
     default:
       return state;
   }
 };
+
+// START selectors //
+const getTechIds = obj => {
+  let allIds = [];
+
+  Object.values(obj.selectedTechs).map(tech => {
+    allIds = union([], allIds, [tech.value]);
+  })
+
+  return allIds
+}
+// END selectors //
 
 const UserReducer = combineReducers({
   resumeImageData,
@@ -66,7 +78,7 @@ const UserReducer = combineReducers({
   benefitsData,
   personalData,
   salaryData,
-  techsData
+  userTechIds
 });
 
 export default UserReducer;
