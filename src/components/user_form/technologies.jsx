@@ -10,7 +10,7 @@ class Technologies extends Component {
     };
   }
 
-  handleLocationChange = newTech => {
+  handleTechChange = newTech => {
     this.setState({ selectedTechs: newTech });
   }
 
@@ -43,7 +43,7 @@ class Technologies extends Component {
         <Select
            name="form-field-name"
            value={selectedTechs}
-           onChange={this.handleLocationChange}
+           onChange={this.handleTechChange}
            options={allTechs}
            multi={true}
          />
