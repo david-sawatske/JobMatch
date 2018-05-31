@@ -6,8 +6,7 @@ class Technologies extends Component {
     super(props);
 
     this.state = {
-      selectedTechs: '',
-      legalAuth: false
+      selectedTechs: ''
     };
   }
 
@@ -20,7 +19,7 @@ class Technologies extends Component {
   }
 
   render() {
-    const { selectedTechs, legalAuth } = this.state;
+    const { selectedTechs } = this.state;
 
     const allTechs = [
       { value: 0, label: 'Java' },
