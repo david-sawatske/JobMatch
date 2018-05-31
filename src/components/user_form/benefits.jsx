@@ -38,8 +38,6 @@ class Benefits extends Component {
 
     return (
       <div>
-        <h1>Benefits</h1>
-
         <Select
            name="form-field-name"
            value={selectedBenefits}

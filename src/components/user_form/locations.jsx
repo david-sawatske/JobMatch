@@ -35,8 +35,6 @@ class Locations extends Component {
 
     return (
       <div>
-        <h1>Locations</h1>
-
         <Select
            name="form-field-name"
            value={selectedLocations}

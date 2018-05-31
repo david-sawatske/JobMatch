@@ -38,8 +38,6 @@ class Technologies extends Component {
 
     return (
       <div>
-        <h1>Technologies</h1>
-
         <Select
            name="form-field-name"
            value={selectedTechs}
