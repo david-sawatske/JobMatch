@@ -3,6 +3,7 @@ export const UPDATE_LOCATIONS_DATA = 'UPDATE_LOCATIONS_DATA';
 export const UPDATE_PERSONAL_DATA = 'UPDATE_PERSONAL_DATA';
 export const UPDATE_BENEFITS_DATA = 'UPDATE_BENEFITS_DATA';
 export const UPDATE_TECHS_DATA = 'UPDATE_LOCATIONS_DATA';
+export const UPDATE_SALARY_DATA = 'UPDATE_SALARY_DATA';
 
 export const updatePersonalData = data => ({
   type: UPDATE_PERSONAL_DATA,
@@ -26,5 +27,10 @@ export const updateTechsData = data => ({
 
 export const updateBenefitsData = data => ({
   type: UPDATE_BENEFITS_DATA,
+  data
+});
+
+export const updateSalaryData = data => ({
+  type: UPDATE_SALARY_DATA,
   data
 });

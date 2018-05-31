@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { UPDATE_PERSONAL_DATA, UPDATE_RESUME_IMAGE_DATA, UPDATE_BENEFITS_DATA,
-         UPDATE_LOCATIONS_DATA, UPDATE_TECHS_DATA } from '../actions/user_actions';
+import { UPDATE_PERSONAL_DATA, UPDATE_RESUME_IMAGE_DATA,
+         UPDATE_LOCATIONS_DATA, UPDATE_TECHS_DATA,
+         UPDATE_SALARY_DATA, UPDATE_BENEFITS_DATA } from '../actions/user_actions';
 
 import { merge } from 'lodash';
 
@@ -50,11 +51,21 @@ const benefitsData = (state = {}, action) => {
   }
 };
 
+const salaryData = (state = {}, action) => {
+  switch(action.type) {
+    case UPDATE_SALARY_DATA:
+      return merge({}, state, action.data);
+    default:
+      return state;
+  }
+};
+
 const UserReducer = combineReducers({
   resumeImageData,
   locationsData,
   benefitsData,
   personalData,
+  salaryData,
   techsData
 });
 
