@@ -25,9 +25,11 @@ class ResumePhoto extends Component {
   }
 
   onClick = () => {
-    const { updateResumeImageData } =  this.props;
+    const { updateResumeImageData, setIdx } =  this.props;
 
-    this.props.updateResumeImageData(this.state)
+    updateResumeImageData(this.state);
+
+    setIdx();
   }
 
   render() {

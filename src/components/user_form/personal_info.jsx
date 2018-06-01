@@ -19,9 +19,10 @@ class PersonalInfo extends Component {
   )
 
   onClick = () => {
-    const { updatePersonalData } =  this.props;
+    const { updatePersonalData, setIdx } =  this.props;
 
-    updatePersonalData(this.state)
+    updatePersonalData(this.state);
+    setIdx();
   }
 
   render() {
@@ -41,7 +42,7 @@ class PersonalInfo extends Component {
           <input type="text" onChange={ this.update('linkedIn') }/>
         </form>
 
-        <button onClick={this.onClick}>Personal Next</button>
+        <button onClick={this.onClick}>Next</button>
       </div>
     );
   }

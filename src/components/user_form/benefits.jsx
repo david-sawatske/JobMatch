@@ -15,7 +15,10 @@ class Benefits extends Component {
   }
 
   onClick = () => {
-    this.props.updateBenefitsData(this.state)
+    const { updateBenefitsData, setIdx } = this.props;
+
+    updateBenefitsData(this.state);
+    setIdx();
   }
 
   render() {
@@ -46,7 +49,7 @@ class Benefits extends Component {
            multi={true}
          />
 
-        <button onClick={this.onClick}>Benefits Next</button>
+        <button onClick={this.onClick}>Next</button>
       </div>
     );
   }

@@ -15,7 +15,10 @@ class Technologies extends Component {
   }
 
   onClick = () => {
-    this.props.updateTechsData(this.state)
+    const { updateTechsData, setIdx } = this.props;
+
+    updateTechsData(this.state);
+    setIdx();
   }
 
   render() {
@@ -46,7 +49,7 @@ class Technologies extends Component {
            multi={true}
          />
 
-        <button onClick={this.onClick}>Techs Next</button>
+        <button onClick={this.onClick}>Next</button>
       </div>
     );
   }

@@ -20,7 +20,10 @@ class Locations extends Component {
   }
 
   onClick = () => {
-    this.props.updateLocationsData(this.state)
+    const { updateLocationsData, setIdx } =  this.props;
+
+    updateLocationsData(this.state);
+    setIdx();
   }
 
   render() {
@@ -48,7 +51,7 @@ class Locations extends Component {
            checked={this.state.legalAuth}
            onChange={this.handleLegalChange} />
 
-        <button onClick={this.onClick}>Personal Next</button>
+        <button onClick={this.onClick}>Next</button>
       </div>
     );
   }

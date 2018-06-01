@@ -16,9 +16,10 @@ class Salary extends Component {
   )
 
   onClick = () => {
-    const { updateSalaryData } =  this.props;
+    const { updateSalaryData, setIdx } =  this.props;
 
-    updateSalaryData(this.state)
+    updateSalaryData(this.state);
+    setIdx();
   }
 
   render() {
@@ -29,7 +30,7 @@ class Salary extends Component {
           <input type="number" onChange={ this.update('requiredSalary') }/>
         </form>
 
-        <button onClick={this.onClick}>Salary Next</button>
+        <button onClick={this.onClick}>Next</button>
       </div>
     );
   }

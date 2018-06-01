@@ -18,7 +18,9 @@ export default class UserForm extends Component {
   }
 
   setActiveComponentIdx = (idx) => {
-    this.setState({ activeComponentIdx: idx });
+    const newIdx = (idx) ? idx : (this.state.activeComponentIdx + 1)
+
+    this.setState({ activeComponentIdx: newIdx });
   }
 
   render() {
@@ -30,22 +32,28 @@ export default class UserForm extends Component {
    let currentComponent
    switch (activeComponentIdx) {
      case 0:
-       currentComponent = <PersonalInfo updatePersonalData={updatePersonalData} />
+       currentComponent = <PersonalInfo updatePersonalData={updatePersonalData}
+                                        setIdx={this.setActiveComponentIdx} />
        break;
      case 1:
-       currentComponent = <ResumePhoto updateResumeImageData={updateResumeImageData} />
+       currentComponent = <ResumePhoto updateResumeImageData={updateResumeImageData}
+                                       setIdx={this.setActiveComponentIdx} />
        break;
      case 2:
-       currentComponent = <Locations updateLocationsData={updateLocationsData} />
+       currentComponent = <Locations updateLocationsData={updateLocationsData}
+                                     setIdx={this.setActiveComponentIdx} />
        break;
      case 3:
-       currentComponent = <Technologies updateTechsData={updateTechsData} />
+       currentComponent = <Technologies updateTechsData={updateTechsData}
+                                        setIdx={this.setActiveComponentIdx} />
        break;
      case 4:
-       currentComponent = <Benefits updateBenefitsData={updateBenefitsData} />
+       currentComponent = <Benefits updateBenefitsData={updateBenefitsData}
+                                    setIdx={this.setActiveComponentIdx} />
        break;
      case 5:
-       currentComponent = <Salary updateSalaryData={updateSalaryData} />
+       currentComponent = <Salary updateSalaryData={updateSalaryData}
+                                  setIdx={this.setActiveComponentIdx} />
        break;
      default:
       currentComponent = null
@@ -53,6 +61,7 @@ export default class UserForm extends Component {
 
     return (
       <div className="user-form">
+        <h1>{this.state.activeComponentIdx}</h1>
         <UserFormHeader activeIdx={activeComponentIdx}
                         setIdx={this.setActiveComponentIdx} />
         { currentComponent }
