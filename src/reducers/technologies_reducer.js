@@ -16,8 +16,6 @@ const techsById = (state = {}, action) => {
 const allTechIds = (state = {}, action) => {
   switch(action.type) {
     case UPDATE_TECHS_DATA:
-    console.log(getTechsData(action.data).allIds);
-
       return union([], state, getTechsData(action.data).allIds);
     default:
       return state;
