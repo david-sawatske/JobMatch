@@ -6,7 +6,9 @@ const UserFormHeader = ({ activeIdx, setIdx }) => {
                               "Benefits", "Salary" ]
 
   const handleClick = idx => {
-    setIdx(idx)
+    if (activeIdx != idx) {
+      setIdx(idx)
+    }
   }
 
   return (
