@@ -25,18 +25,18 @@ class Technologies extends Component {
     const { selectedTechs } = this.state;
 
     const allTechs = [
-      { value: 0, label: 'Java' },
-      { value: 1, label: 'Python' },
-      { value: 3, label: 'C++' },
-      { value: 4, label: 'JavaScript' },
-      { value: 5, label: 'Ruby on Rails' },
-      { value: 6, label: 'jQuery' },
-      { value: 7, label: 'HTML' },
-      { value: 8, label: 'CSS' },
-      { value: 9, label: 'SQL' },
-      { value: 10, label: 'React' },
-      { value: 11, label: 'Node.js' },
-      { value: 12, label: 'AngularJS' }
+      { value: 0, label: 'Java', skillLevel: 1 },
+      { value: 1, label: 'Python', skillLevel: 1 },
+      { value: 3, label: 'C++', skillLevel: 1 },
+      { value: 4, label: 'JavaScript', skillLevel: 1 },
+      { value: 5, label: 'Ruby on Rails', skillLevel: 1 },
+      { value: 6, label: 'jQuery', skillLevel: 1 },
+      { value: 7, label: 'HTML', skillLevel: 1 },
+      { value: 8, label: 'CSS', skillLevel: 1 },
+      { value: 9, label: 'SQL', skillLevel: 1 },
+      { value: 10, label: 'React', skillLevel: 1 },
+      { value: 11, label: 'Node.js', skillLevel: 1 },
+      { value: 12, label: 'AngularJS', skillLevel: 1 }
     ]
 
     return (
