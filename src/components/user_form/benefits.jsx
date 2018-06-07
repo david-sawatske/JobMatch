@@ -40,7 +40,10 @@ class Benefits extends Component {
     ]
 
     return (
-      <div>
+      <div className="benefits">
+        <h2>Choose what's important in a role: </h2>
+        <p>Note: You will <em>ONLY</em> see jobs with these benefits.</p>
+
         <Select
            name="form-field-name"
            value={selectedBenefits}

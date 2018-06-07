@@ -67,7 +67,11 @@
             margin-top: 5vh;
           }
 
-          .personal-info, .resume-photo, .locations, .technologies {
+          .personal-info,
+          .resume-photo,
+          .locations,
+          .technologies,
+          .benefits {
             justify-self: center;
             width: 75vw;
 
@@ -201,7 +205,7 @@
             }
           }
 
-          .technologies {
+          .technologies, .benefits {
             h2 {
               margin: 4vh 0;
             }
