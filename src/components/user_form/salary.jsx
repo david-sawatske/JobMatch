@@ -24,13 +24,18 @@ class Salary extends Component {
 
   render() {
     return (
-      <div>
+      <div className="salary">
+        <h2>What is the minimum <em>ANNUAL</em> salary you would consider?</h2>
+        <p>No one, not the recruiter and not the company, will see this number. It's only for job-filtering purposes.</p>
+        <p>If you're open to any salary, just leave it blank.</p>
+
         <form>
-          <label>Minimum Annual Salary</label>
+          <label>$ </label>
           <input type="number" onChange={ this.update('requiredSalary') }/>
+          <label> / per year</label>
         </form>
 
-        <button onClick={this.onClick}>Next</button>
+        <button onClick={this.onClick}>Submit</button>
       </div>
     );
   }

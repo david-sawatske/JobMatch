@@ -69,9 +69,10 @@
 
           .personal-info,
           .resume-photo,
-          .locations,
           .technologies,
-          .benefits {
+          .locations,
+          .benefits,
+          .salary {
             justify-self: center;
             width: 75vw;
 
@@ -81,7 +82,13 @@
             background-color: #ffff;
           }
 
-          .personal-info {
+          .technologies, .benefits, .salary {
+            h2 {
+              margin: 4vh 0;
+            }
+          }
+
+          .personal-info, .salary {
             form {
               margin: 2.5vh 2.5vw;
 
@@ -205,17 +212,14 @@
             }
           }
 
-          .technologies, .benefits {
-            h2 {
-              margin: 4vh 0;
-            }
+          .salary form input {
+            width: 25%;
           }
         }
       }
     }
   }
 }
-
 
 // Default style for react-select imported directly into App component
 // Default Styles
@@ -256,7 +260,7 @@ h5 {
   text-transform: none;
 }
 
-p {
+p, .salary * label {
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-size: 15px;
