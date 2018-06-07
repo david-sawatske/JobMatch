@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import 'react-select/scss/default.scss'
 
 class Locations extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class Locations extends Component {
     ]
 
     return (
-      <div>
+      <div className='locations'>
+        <h2>Which locations do you want to work in?</h2>
+        <p>If you're open to any location, skip ahead.</p>
         <Select
            name="form-field-name"
            value={selectedLocations}
@@ -46,10 +49,14 @@ class Locations extends Component {
            multi={true}
          />
 
-         <input
-           type="checkbox"
-           checked={this.state.legalAuth}
-           onChange={this.handleLegalChange} />
+        <label>
+          <input
+            type="checkbox"
+            checked={this.state.legalAuth}
+            onChange={this.handleLegalChange} />
+          I am legally authorized to work in the US without sponsorship
+        </label>
+
 
         <button onClick={this.onClick}>Next</button>
       </div>

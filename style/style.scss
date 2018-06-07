@@ -67,7 +67,7 @@
             margin-top: 5vh;
           }
 
-          .personal-info, .resume-photo {
+          .personal-info, .resume-photo, .locations {
             justify-self: center;
             width: 75vw;
 
@@ -180,6 +180,28 @@
               margin-top: 5vh;
             }
           }
+
+          .locations {
+            // Default style for react-select imported into component
+
+            h2 {
+              padding-top: 4vh;
+            }
+
+            label {
+              font-family: "Roboto", sans-serif;
+              font-size: 18px;
+              color: #828282;
+
+              span {
+                margin: 1vw;
+              }
+            }
+
+            button {
+              margin-top: 5vh;
+            }
+          }
         }
       }
     }
@@ -222,6 +244,13 @@ h5 {
   font-family: "Roboto", sans-serif;
 
   text-transform: none;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  color: #828282;
 }
 
 button, .resume-photo > label {
