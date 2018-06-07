@@ -63,7 +63,10 @@ export default class UserForm extends Component {
       <div className="user-form">
         <UserFormHeader activeIdx={activeComponentIdx}
                         setIdx={this.setActiveComponentIdx} />
-        { currentComponent }
+
+        <div className="currentComponent">
+          { currentComponent }
+        </div>
       </div>
     );
   }

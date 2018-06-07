@@ -27,18 +27,22 @@ class PersonalInfo extends Component {
 
   render() {
     return (
-      <div>
+      <div className="personal-info">
         <form>
           <label>First Name</label>
+          <br/>
           <input type="text" onChange={ this.update('first') }/>
           <br/>
           <label>Last Name</label>
+          <br/>
           <input type="text" onChange={ this.update('last') }/>
           <br/>
           <label>GitHub Profile</label>
+          <br/>
           <input type="text" onChange={ this.update('github') }/>
           <br/>
           <label>LinkedIn Profile</label>
+          <br/>
           <input type="text" onChange={ this.update('linkedIn') }/>
         </form>
 
