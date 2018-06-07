@@ -17,8 +17,8 @@ export default class UserForm extends Component {
     };
   }
 
-  setActiveComponentIdx = (idx) => {
-    const newIdx = (idx) ? idx : (this.state.activeComponentIdx + 1)
+  setActiveComponentIdx = idx => {
+    const newIdx = (idx || idx === 0) ? idx : (this.state.activeComponentIdx + 1)
 
     this.setState({ activeComponentIdx: newIdx });
   }
@@ -61,7 +61,6 @@ export default class UserForm extends Component {
 
     return (
       <div className="user-form">
-        <h1>{this.state.activeComponentIdx}</h1>
         <UserFormHeader activeIdx={activeComponentIdx}
                         setIdx={this.setActiveComponentIdx} />
         { currentComponent }
