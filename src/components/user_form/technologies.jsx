@@ -40,7 +40,10 @@ class Technologies extends Component {
     ]
 
     return (
-      <div>
+      <div className="technologies">
+        <h2>What skills do you bring to the table?</h2>
+        <p>Add your top five skills from below.</p>
+
         <Select
            name="form-field-name"
            value={selectedTechs}

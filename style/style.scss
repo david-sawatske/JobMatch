@@ -67,7 +67,7 @@
             margin-top: 5vh;
           }
 
-          .personal-info, .resume-photo, .locations {
+          .personal-info, .resume-photo, .locations, .technologies {
             justify-self: center;
             width: 75vw;
 
@@ -182,8 +182,6 @@
           }
 
           .locations {
-            // Default style for react-select imported into component
-
             h2 {
               padding-top: 4vh;
             }
@@ -202,12 +200,20 @@
               margin-top: 5vh;
             }
           }
+
+          .technologies {
+            h2 {
+              margin: 4vh 0;
+            }
+          }
         }
       }
     }
   }
 }
 
+
+// Default style for react-select imported directly into App component
 // Default Styles
 h2, h3, h4, h5 {
   font-family: "Montserrat", "sans-serif";

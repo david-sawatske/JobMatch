@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import 'react-select/scss/default.scss'
 
 class Locations extends Component {
   constructor(props) {
