@@ -15,11 +15,8 @@ class Technologies extends Component {
   }
 
   onClick = () => {
-    const { updateTechsData, createSkillData, setIdx, userId } = this.props;
+    const { createSkillData, setIdx, userId } = this.props;
     const { selectedTechs } = this.state;
-
-    updateTechsData(this.state);
-    setIdx();
 
     const userTechs = {};
     Object.values(selectedTechs).map((tech, idx) => {
@@ -27,6 +24,7 @@ class Technologies extends Component {
     })
 
     createSkillData(userTechs);
+    setIdx();
   }
 
   render() {

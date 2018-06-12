@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux';
 
-import { UPDATE_TECHS_DATA } from '../actions/user_actions';
-
 import { merge, union } from 'lodash';
 
 const defaultById = {
@@ -23,8 +21,6 @@ const defaultIds = [...Array(13).keys()]
 
 const techsById = (state = defaultById, action) => {
   switch(action.type) {
-    case UPDATE_TECHS_DATA:
-      return merge({}, state, getTechsData(action.data).byId);
     default:
       return state;
   }
@@ -32,8 +28,6 @@ const techsById = (state = defaultById, action) => {
 
 const allTechIds = (state = defaultIds, action) => {
   switch(action.type) {
-    case UPDATE_TECHS_DATA:
-      return union([], state, getTechsData(action.data).allIds);
     default:
       return state;
   }

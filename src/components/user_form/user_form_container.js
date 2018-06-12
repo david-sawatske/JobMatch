@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { updatePersonalData, updateResumeImageData,
          updateBenefitsData, updateSalaryData,
-         updateLocationsData, updateTechsData } from '../../actions/user_actions';
+         updateLocationsData } from '../../actions/user_actions';
 import { updateSkillData, createSkillData } from '../../actions/skill_actions';
 
 import UserForm from './user_form';
@@ -14,7 +14,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateTechsData: data => dispatch(updateTechsData(data)),
   updateSkillData: data => dispatch(updateSkillData(data)),
   createSkillData: data => dispatch(createSkillData(data)),
   updateSalaryData: data => dispatch(updateSalaryData(data)),
