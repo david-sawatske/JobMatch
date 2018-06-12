@@ -32,7 +32,7 @@ const getSkillsData = obj => {
   Object.values(obj).map(skill => {
     const skillId = Number(skill.userId.toString() + skill.techId);
 
-    byId[skillId] = skill;
+    byId[skillId] = {skillId: skillId, ...skill};
     allIds.push(skillId);
   })
 
