@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { UPDATE_SKILL_DATA, CREATE_SKILL_DATA } from '../actions/user_actions';
+import { UPDATE_SKILL_DATA, CREATE_SKILL_DATA } from '../actions/skill_actions';
 
 import { merge, union } from 'lodash';
 
