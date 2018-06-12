@@ -23,21 +23,9 @@ class Technologies extends Component {
 
   render() {
     const { selectedTechs } = this.state;
+    const { techsById } = this.props;
 
-    const allTechs = [
-      { value: 0, label: 'Java', skillLevel: 1 },
-      { value: 1, label: 'Python', skillLevel: 1 },
-      { value: 3, label: 'C++', skillLevel: 1 },
-      { value: 4, label: 'JavaScript', skillLevel: 1 },
-      { value: 5, label: 'Ruby on Rails', skillLevel: 1 },
-      { value: 6, label: 'jQuery', skillLevel: 1 },
-      { value: 7, label: 'HTML', skillLevel: 1 },
-      { value: 8, label: 'CSS', skillLevel: 1 },
-      { value: 9, label: 'SQL', skillLevel: 1 },
-      { value: 10, label: 'React', skillLevel: 1 },
-      { value: 11, label: 'Node.js', skillLevel: 1 },
-      { value: 12, label: 'AngularJS', skillLevel: 1 }
-    ]
+    const allTechs = Object.values(techsById)
 
     return (
       <div className="technologies">
