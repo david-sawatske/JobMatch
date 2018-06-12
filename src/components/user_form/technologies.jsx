@@ -15,16 +15,23 @@ class Technologies extends Component {
   }
 
   onClick = () => {
-    const { updateTechsData, setIdx } = this.props;
+    const { updateTechsData, createSkillData, setIdx, userId } = this.props;
+    const { selectedTechs } = this.state;
 
     updateTechsData(this.state);
     setIdx();
+
+    const userTechs = {};
+    Object.values(selectedTechs).map((tech, idx) => {
+      userTechs[idx] = { userId, techId: tech.value, level: 1 }
+    })
+
+    createSkillData(userTechs);
   }
 
   render() {
     const { selectedTechs } = this.state;
-    const { techsById } = this.props;
-
+    const { techsById, userId } = this.props;
     const allTechs = Object.values(techsById)
 
     return (

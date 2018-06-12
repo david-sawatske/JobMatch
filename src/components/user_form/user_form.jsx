@@ -27,14 +27,17 @@ export default class UserForm extends Component {
     const { activeComponentIdx } = this.state;
     const { updatePersonalData, updateResumeImageData,
             updateLocationsData, updateBenefitsData,
-            updateTechsData, updateSalaryData, userData, techData } = this.props;
+            updateTechsData, updateSalaryData, userData,
+            createSkillData, techData } = this.props;
 
     const { personalData } = userData;
+    const { techsById } = techData;
 
     let currentComponent
     switch (activeComponentIdx) {
      case 0:
        currentComponent = <PersonalInfo updatePersonalData={updatePersonalData}
+                                        personalData={personalData}
                                         setIdx={this.setActiveComponentIdx} />
        break;
      case 1:
@@ -47,7 +50,9 @@ export default class UserForm extends Component {
        break;
      case 3:
        currentComponent = <Technologies updateTechsData={updateTechsData}
-                                        techsById={techData.techsById}
+                                        createSkillData={createSkillData}
+                                        userId={personalData.id}
+                                        techsById={techsById}
                                         setIdx={this.setActiveComponentIdx} />
        break;
      case 4:

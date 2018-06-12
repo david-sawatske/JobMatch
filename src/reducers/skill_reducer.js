@@ -29,11 +29,11 @@ const getSkillsData = obj => {
   let byId = {};
   let allIds = [];
 
-  Object.values(obj.selectedTechs).map(tech => {
-    const techId = tech.value;
+  Object.values(obj).map(skill => {
+    const skillId = Number(skill.userId.toString() + skill.techId);
 
-    byId = merge({}, byId, {[techId]: tech.label });
-    allIds = union([], allIds, [techId]);
+    byId[skillId] = skill;
+    allIds.push(skillId);
   })
 
   return { byId: byId, allIds: allIds }
