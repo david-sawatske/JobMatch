@@ -7,57 +7,49 @@ class SkillIndex extends Component {
     super(props);
 
     this.state = {
-      currentSkillId: ''
+      currentSkillIdx: 0
     }
 
     this.setCurrentSkillId = this.setCurrentSkillId.bind(this)
   }
 
-  componentDidMount() {
-    const defaultSkillId = Object.keys(this.props.userSkills)[0]
-
-    this.setState({ currentSkillId: defaultSkillId })
+  handleTechClick = idx => {
+    this.setState({ currentSkillIdx: idx });
   }
 
-  handleTechClick = id => {
-    this.setState({ currentSkillId: id });
-  }
-
-  setCurrentSkillId(event, id) {
+  setCurrentSkillId(event, idx) {
     event.preventDefault()
 
-    this.setState({ currentSkillId: id })
+    this.setState({ currentSkillIdx: idx })
   }
 
   render() {
     const { userSkills, updateSkillData, userId } = this.props;
+    const { userSkillsById, userSkillIds } = userSkills;
+    const { currentSkillIdx } = this.state;
 
-    const { currentSkillId } = this.state;
+    const currentSkillId = userSkillIds[currentSkillIdx];
+    const currentSkill = userSkillsById[currentSkillId];
+    const currentTechName = (currentSkill) ? currentSkill.techName : null;
 
-    const currentSkill = (currentSkillId) ? userSkills[currentSkillId] : {};
-    const currentTechName = currentSkill.techName;
-
-    let currSkillComponent
-    if (currentTechName) {
-      console.log("CURR SKILL", currentSkill);
-      currSkillComponent = <SkillLevel updateSkillData={updateSkillData}
-                                       currentSkill={currentSkill}
-                                       userId={userId} />
-    }
     return (
       <div className='skill-index'>
-        { currSkillComponent }
+        <SkillLevel updateSkillData={updateSkillData}
+                    currentSkill={currentSkill}
+                    userId={userId} />
 
-        {Object.keys(userSkills).map((skillId, idx) => {
-          const currentSkill = userSkills[skillId];
-          const { level, techName } = currentSkill;
-          const className = techName === currentTechName ? 'current-skill' : 'skill'
+        {userSkillIds.map((skillId, idx) => {
+          const currentSkill = userSkillsById[skillId];
+          const techName = currentSkill.techName;
+          const className = techName === currentTechName ? 'current-skill'
+                                                             :
+                                                           'skill';
 
           return (
             <h1 key={idx}
                 className={className}
-                onClick={() => this.handleTechClick(skillId)}>
-              {currentSkill.techName}
+                onClick={() => this.handleTechClick(idx)}>
+              {techName}
             </h1>
           )
         })}

@@ -5,7 +5,7 @@ import { updateSkillData } from '../../actions/skill_actions';
 import SkillIndex from './skill_index';
 
 const mapStateToProps = state => ({
-  userSkills: userSkills(state).skills,
+  userSkills: userSkills(state),
   userId: state.userData.personalData.id
 });
 
@@ -19,8 +19,8 @@ const userSkills = state => {
   const skillsById = state.skillsData.skillsById;
   const techsById = state.technologiesData.techsById;
 
-  const skills = {};
-  let defaultSkillId;
+  const userSkillsById = {};
+  const userSkillIds = [];
 
   Object.keys(skillsById).map(skillId => {
     const skillObj = skillsById[skillId];
@@ -29,17 +29,16 @@ const userSkills = state => {
       const currTechId = skillObj.techId;
       const currTech = techsById[currTechId];
 
-      skills[skillId] = { skillId: skillObj.skillId,
+      userSkillIds.push(skillId);
+      userSkillsById[skillId] = { skillId: skillObj.skillId,
                           techName: currTech.label,
                           techId: skillObj.techId,
-                          level: skillObj.level }
+                          level: skillObj.level };
 
-    } else if (!defaultSkillId) {
-      defaultSkillId = skillId
     }
   })
 
-  return { skills, defaultSkillId }
+  return { userSkillsById, userSkillIds }
 }
 // Selector End //
 
