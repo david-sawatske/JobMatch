@@ -9,7 +9,7 @@ import UserForm from './user_form';
 
 const mapStateToProps = state => ({
   userData: state.userData,
-  skillData: state.skillData,
+  skillsData: state.skillsData,
   techData: state.technologiesData
 });
 

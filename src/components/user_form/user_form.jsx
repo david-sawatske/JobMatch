@@ -4,6 +4,7 @@ import UserFormHeader from './user_form_header'
 import PersonalInfo from './personal_info'
 import Technologies from './technologies'
 import ResumePhoto from './resume_photo'
+import SkillIndex from './skill_index_container'
 import Locations from './locations'
 import Benefits from './benefits'
 import Salary from './salary'
@@ -27,52 +28,60 @@ export default class UserForm extends Component {
     const { activeComponentIdx } = this.state;
     const { updatePersonalData, updateResumeImageData,
             updateLocationsData, updateBenefitsData,
-            updateSalaryData, userData, techData,
+            updateSalaryData, userData, techData, skillsData,
             createSkillData } = this.props;
 
-    const { personalData } = userData;
     const { techsById } = techData;
+    const { personalData } = userData;
+    const { skillsById, allSkillIds } = skillsData;
 
-    let currentComponent
+    let CurrentComponent
+    let FormHeader = <UserFormHeader activeIdx={activeComponentIdx}
+                                     setIdx={this.setActiveComponentIdx} />
+
     switch (activeComponentIdx) {
      case 0:
-       currentComponent = <PersonalInfo updatePersonalData={updatePersonalData}
+       CurrentComponent = <PersonalInfo updatePersonalData={updatePersonalData}
                                         personalData={personalData}
                                         setIdx={this.setActiveComponentIdx} />
        break;
      case 1:
-       currentComponent = <ResumePhoto updateResumeImageData={updateResumeImageData}
+       CurrentComponent = <ResumePhoto updateResumeImageData={updateResumeImageData}
                                        setIdx={this.setActiveComponentIdx} />
        break;
      case 2:
-       currentComponent = <Locations updateLocationsData={updateLocationsData}
+       CurrentComponent = <Locations updateLocationsData={updateLocationsData}
                                      setIdx={this.setActiveComponentIdx} />
        break;
      case 3:
-       currentComponent = <Technologies createSkillData={createSkillData}
+       CurrentComponent = <Technologies createSkillData={createSkillData}
                                         userId={personalData.id}
                                         techsById={techsById}
                                         setIdx={this.setActiveComponentIdx} />
        break;
      case 4:
-       currentComponent = <Benefits updateBenefitsData={updateBenefitsData}
+       CurrentComponent = <Benefits updateBenefitsData={updateBenefitsData}
                                     setIdx={this.setActiveComponentIdx} />
        break;
      case 5:
-       currentComponent = <Salary updateSalaryData={updateSalaryData}
+       CurrentComponent = <Salary updateSalaryData={updateSalaryData}
                                   setIdx={this.setActiveComponentIdx} />
        break;
+     case 6:
+       FormHeader = null;
+       CurrentComponent = <SkillIndex />;
+
+       break;
      default:
-      currentComponent = null
+      CurrentComponent = null
     }
 
     return (
       <div className="user-form">
-        <UserFormHeader activeIdx={activeComponentIdx}
-                        setIdx={this.setActiveComponentIdx} />
+        { FormHeader }
 
         <div className="currentComponent">
-          { currentComponent }
+          { CurrentComponent }
         </div>
       </div>
     );
