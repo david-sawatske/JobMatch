@@ -10,17 +10,18 @@ class SkillIndex extends Component {
       currentSkillIdx: 0
     }
 
-    this.setCurrentSkillId = this.setCurrentSkillId.bind(this)
+    this.setCurrentSkillIdx = this.setCurrentSkillIdx.bind(this)
   }
 
-  handleTechClick = idx => {
-    this.setState({ currentSkillIdx: idx });
-  }
-
-  setCurrentSkillId(event, idx) {
+  setCurrentSkillIdx(event, idx) {
     event.preventDefault()
 
-    this.setState({ currentSkillIdx: idx })
+    if (idx >= 0) {
+      this.setState({ currentSkillIdx: idx })
+    } else {
+      const newIdx = (this.state.currentSkillIdx + 1)
+      this.setState({ currentSkillIdx: newIdx })
+    }
   }
 
   render() {
@@ -30,11 +31,12 @@ class SkillIndex extends Component {
 
     const currentSkillId = userSkillIds[currentSkillIdx];
     const currentSkill = userSkillsById[currentSkillId];
-    const currentTechName = (currentSkill) ? currentSkill.techName : null;
+    const currentTechName = currentSkill.techName;
 
     return (
       <div className='skill-index'>
-        <SkillLevel updateSkillData={updateSkillData}
+        <SkillLevel setCurrentSkillIdx={this.setCurrentSkillIdx}
+                    updateSkillData={updateSkillData}
                     currentSkill={currentSkill}
                     userId={userId} />
 
@@ -44,11 +46,10 @@ class SkillIndex extends Component {
           const className = techName === currentTechName ? 'current-skill'
                                                              :
                                                            'skill';
-
           return (
             <h1 key={idx}
                 className={className}
-                onClick={() => this.handleTechClick(idx)}>
+                onClick={(e) => this.setCurrentSkillIdx(e, idx)}>
               {techName}
             </h1>
           )

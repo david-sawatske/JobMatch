@@ -21,15 +21,16 @@ class SkillLevel extends Component {
     }
   }
 
-  onCompClick(level) {
-    const { userId, currentSkill } = this.props;
+  onCompClick(event, level) {
+    const { userId, currentSkill, updateSkillData, setCurrentSkillIdx } = this.props;
     const { skillId, techId } = currentSkill;
 
     this.setState({ currLevel: level })
 
-    this.props.updateSkillData({ [skillId]: { level: level,
-                                              userId: userId,
-                                              techId: techId }})
+    updateSkillData({ [skillId]: { level: level,
+                                   userId: userId,
+                                   techId: techId }})
+    setCurrentSkillIdx(event);
   }
 
   render() {
@@ -47,13 +48,15 @@ class SkillLevel extends Component {
         <h1>How skilled are you with {currentSkill.techName}?</h1>
         <h2>STATE LEVEL {currLevel}</h2>
         <form>
-
-          {competencies.map((comp, idx) => {
+          {competencies.map((competency, idx) => {
             return (
-              <input type='radio'
-                     name='level'
-                     checked={idx === (currLevel - 1)}
-                     onClick={() => this.onCompClick(idx + 1)} />
+              <label>
+                <input type='radio'
+                  name='level'
+                  checked={idx === (currLevel - 1)}
+                  onClick={(e) => this.onCompClick(e, (idx + 1))} />
+                {competency}
+              </label>
             )
           })}
         </form>
