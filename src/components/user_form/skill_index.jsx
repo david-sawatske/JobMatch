@@ -34,26 +34,28 @@ class SkillIndex extends Component {
     const currentTechName = currentSkill.techName;
 
     return (
-      <div className='skill-index'>
+      <div className='skill-container'>
         <SkillLevel setCurrentSkillIdx={this.setCurrentSkillIdx}
                     updateSkillData={updateSkillData}
                     currentSkill={currentSkill}
                     userId={userId} />
 
-        {userSkillIds.map((skillId, idx) => {
-          const currentSkill = userSkillsById[skillId];
-          const techName = currentSkill.techName;
-          const className = techName === currentTechName ? 'current-skill'
-                                                             :
-                                                           'skill';
-          return (
-            <h1 key={idx}
-                className={className}
-                onClick={(e) => this.setCurrentSkillIdx(e, idx)}>
-              {techName}
-            </h1>
-          )
-        })}
+        <div className='skill-index'>
+          {userSkillIds.map((skillId, idx) => {
+            const currentSkill = userSkillsById[skillId];
+            const techName = currentSkill.techName;
+            const className = techName === currentTechName ? 'current-skill'
+                                                               :
+                                                             'skill';
+            return (
+              <h3 key={idx}
+                  className={className}
+                  onClick={(e) => this.setCurrentSkillIdx(e, idx)}>
+                {techName}
+              </h3>
+            )
+          })}
+        </div>
       </div>
     );
   }

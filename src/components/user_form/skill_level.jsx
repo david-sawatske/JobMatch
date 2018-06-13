@@ -37,25 +37,24 @@ class SkillLevel extends Component {
     const { currentSkill } = this.props;
     const { currLevel } = this.state;
 
-    const competencies = [ "Familiarity (0-1 year of professional experience, needs mentorship)",
-                       "Gaining Competency (1-3 years of professional experience, occasionally needs mentorship)",
-                       "Individual Competency (3-5 years of professional experience, no longer needs daily mentorship)",
-                       "Strong Competency (5+ years of professional experience, could mentor others)",
-                       "Leadership (Expert competency + has lead or managed a team in this subject)" ]
+    const competencies = {"Familiarity": "(0-1 year of professional experience, needs mentorship)",
+                       "Gaining Competency": "(1-3 years of professional experience, occasionally needs mentorship)",
+                       "Individual Competency": "(3-5 years of professional experience, no longer needs daily mentorship)",
+                       "Strong Competency": "(5+ years of professional experience, could mentor others)",
+                       "Leadership": "(Expert competency + has lead or managed a team in this subject)" }
 
     return (
-      <div>
-        <h1>How skilled are you with {currentSkill.techName}?</h1>
-        <h2>STATE LEVEL {currLevel}</h2>
+      <div className="skill-level">
+        <h2>How skilled are you with <em>{currentSkill.techName}</em>?</h2>
         <form>
-          {competencies.map((competency, idx) => {
+          {Object.keys(competencies).map((compTitle, idx) => {
             return (
-              <label>
+              <label key={idx}>
                 <input type='radio'
                   name='level'
                   checked={idx === (currLevel - 1)}
                   onClick={(e) => this.onCompClick(e, (idx + 1))} />
-                {competency}
+                <p>{compTitle} <em>{competencies[compTitle]}</em></p>
               </label>
             )
           })}
