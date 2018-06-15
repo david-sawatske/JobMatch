@@ -4,7 +4,9 @@ class SkillLevel extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {currLevel: ''};
+    this.state = {
+      currLevel: ''
+    };
   }
 
   componentDidMount() {
@@ -37,11 +39,11 @@ class SkillLevel extends Component {
     const { currentSkill } = this.props;
     const { currLevel } = this.state;
 
-    const competencies = {"Familiarity": "(0-1 year of professional experience, needs mentorship)",
-                       "Gaining Competency": "(1-3 years of professional experience, occasionally needs mentorship)",
-                       "Individual Competency": "(3-5 years of professional experience, no longer needs daily mentorship)",
-                       "Strong Competency": "(5+ years of professional experience, could mentor others)",
-                       "Leadership": "(Expert competency + has lead or managed a team in this subject)" }
+    const competencies = { "Familiarity": "(0-1 year of professional experience, needs mentorship)",
+                           "Gaining Competency": "(1-3 years of professional experience, occasionally needs mentorship)",
+                           "Individual Competency": "(3-5 years of professional experience, no longer needs daily mentorship)",
+                           "Strong Competency": "(5+ years of professional experience, could mentor others)",
+                           "Leadership": "(Expert competency + has lead or managed a team in this subject)" }
 
     return (
       <div className="skill-level">

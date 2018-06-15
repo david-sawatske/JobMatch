@@ -33,13 +33,19 @@ class SkillIndex extends Component {
     const currentSkill = userSkillsById[currentSkillId];
     const currentTechName = currentSkill.techName;
 
+    let CurrSkillLevel
+    if ((currentSkillIdx + 1) === userSkillIds.length) {
+      CurrSkillLevel = <div>REVIEW COMPONENT</div>
+    } else {
+      CurrSkillLevel = <SkillLevel setCurrentSkillIdx={this.setCurrentSkillIdx}
+                                   updateSkillData={updateSkillData}
+                                   currentSkill={currentSkill}
+                                   userId={userId} />
+    }
+
     return (
       <div className='skill-container'>
-        <SkillLevel setCurrentSkillIdx={this.setCurrentSkillIdx}
-                    updateSkillData={updateSkillData}
-                    currentSkill={currentSkill}
-                    userId={userId} />
-
+        { CurrSkillLevel }
         <div className='skill-index'>
           {userSkillIds.map((skillId, idx) => {
             const currentSkill = userSkillsById[skillId];
