@@ -14,7 +14,7 @@ export default class UserForm extends Component {
     super(props);
 
     this.state = {
-      activeComponentIdx: 0
+      activeComponentIdx: 6
     };
   }
 
@@ -28,12 +28,10 @@ export default class UserForm extends Component {
     const { activeComponentIdx } = this.state;
     const { updatePersonalData, updateResumeImageData,
             updateLocationsData, updateBenefitsData,
-            updateSalaryData, userData, techData, skillsData,
-            createSkillData } = this.props;
+            updateSalaryData, userData, techData, createSkillData } = this.props;
 
     const { techsById } = techData;
     const { personalData } = userData;
-    const { skillsById, allSkillIds } = skillsData;
 
     let CurrentComponent
     let FormHeader = <UserFormHeader activeIdx={activeComponentIdx}
